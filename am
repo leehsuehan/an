@@ -1,0 +1,25 @@
+private string accesstoken = "";
+ private string replyApiUrl = "";
+ 
+ [HttpPost]
+ public async Task<IActionResult> WebHook([FromBody]LineEvents request)
+ {
+     foreach (Event eventObj in request.events)
+     {
+        //判斷事件的類別
+        switch (eventObj.type)
+        {
+            //如果是訊息事件
+            case "message":
+                switch (eventObj.message.type)
+                {
+                    //如果是文字訊息
+                    case "text":
+                    //todo 回傳對方傳來的訊息回去
+                    break;
+                }
+                break;
+        }
+     }
+            return OK();
+}
